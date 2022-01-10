@@ -1,0 +1,48 @@
+<!-- views/success.ejs -->
+<!doctype html>
+<html>
+  <head>
+    <title>Post project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> <!-- load bulma css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- load fontawesome -->
+      <style>
+          
+      </style>
+  </head>
+  <body>
+    <div class="container">
+	<div class="card">
+	  <div class="card-header">
+		Make A Post <%= user.displayName %>
+	  </div>
+	  <div class="card-body">
+		<h5 class="card-title"> 🎉 Make a post about your project</h5>
+		  <form action="/upload" method="post" enctype="multipart/form-data">
+			<input type="file" accept="image/*" name="photo" >
+			<div class="input-group">
+			  <textarea name="text" placeholder="Enter Description" class="form-control" aria-label="With textarea"></textarea>
+			</div>
+			<div class="input-group">
+			  <input placeholder="Enter Link to your project" name="link" class="form-control" type="text">
+			</div>
+			<input class="btn btn-primary" type="submit" value="upload">
+
+		</form>
+	  </div>
+	</div>
+   <h1>See what others are doing</h1>
+	  
+	  <% for(var i=0; i < posts.length; i++) { %>
+
+	  <div class="card float-left" style="width: 18rem; margin:20px;">
+	  <img src="<%= posts[i].img %>" class="card-img-top" alt="...">
+	  <div class="card-body">
+		<h5 class="card-title"><%= posts[i].name %></h5>
+		<p class="card-text"><%= posts[i].text %></p>
+		<p class="card-text"><a href="<%= posts[i].link %>">Link: <%= posts[i].link %></a></p>
+	  </div>
+	</div>
+	<% } %>
+    </div>
+  </body>
+</html>

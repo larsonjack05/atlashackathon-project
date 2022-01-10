@@ -1,0 +1,40 @@
+<!-- views/auth.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Google SignIn</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> <!-- load bulma css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+       
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="jumbotron text-center text-primary">
+        <h1><span class="fa fa-lock"></span> Make A Post about your project 😍</h1>
+        <h3><span class="fa fa-lock"></span> MongoDB Atlas Hackathon</h3>
+        <p> 🎉 Login or Register with:</p>
+        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google"></span> SignIn with Google</a>
+    </div>
+
+
+<% for(var i=0; i < posts.length; i++) { %>
+
+   <div class="card float-left" style="width: 18rem; margin:20px;">
+  <img src="<%= posts[i].img %>" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= posts[i].title %></h5>
+    <p class="card-text"><%= posts[i].text %></p>
+  </div>
+</div>
+<% } %>
+
+
+
+</div>
+</body>
+</html> 
